@@ -1,0 +1,1 @@
+C:\xampp\htdocs\smartlogicpro\app/views/hargas/show.blade.php

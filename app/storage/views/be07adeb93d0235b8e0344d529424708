@@ -1,0 +1,35 @@
+
+<?php $__env->startSection('asset'); ?>
+    <?php echo $__env->make('layouts.partials.datatable', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('breadcrumb'); ?>
+    <li><a href="/">Dashboard</a></li>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="uk-grid" data-uk-grid-margin="">
+    <div class="uk-width-medium-2-2">
+        <div class="uk-panel">
+            <h2 class="uk-panel-title">Penjualan</h2>
+			<hr>
+				<a href="<?php echo route('karyawan.penjualanfakturlengkaps.index'); ?>"><img src="<?php echo asset('foto/faktur lengkap shadow.png'); ?>" align="absmiddle" width=180 height=40></a> 
+				<a href="<?php echo route('karyawan.tanpafakturlengkaps.index'); ?>"><img src="<?php echo asset('foto/tanpa faktur lengkap shadow.png'); ?>" align="absmiddle" width=228 height=40></a>
+				<a href="<?php echo route('karyawan.penjualaneksports.index'); ?>"><img src="<?php echo asset('foto/penjualan export shadow.png'); ?>" align="absmiddle" width=180 height=40></a>					
+
+			<table class="uk-table uk-table-striped">
+            <thead>
+                <tr>
+                    <th class="trbg2" width="5%">Omset</th> 
+                    <th  class="trbg" width="20%">Rp. <?php echo number_format($omset,2); ?></th>
+                </tr>
+            </thead>
+            </table>
+
+		 
+
+        </div>
+    </div>
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

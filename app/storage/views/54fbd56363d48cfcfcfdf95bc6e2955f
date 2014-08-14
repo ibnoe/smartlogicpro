@@ -1,0 +1,77 @@
+
+
+
+<?php $__env->startSection('asset'); ?>
+    <?php echo $__env->make('layouts.partials.select2', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('breadcrumb'); ?>
+    <li><a href="/">Dashboard</a></li>
+    <li><a href="<?php echo route('administrator.jabatans.index'); ?>">Jabatan</a></li>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+    <?php echo Form::open(array('url' => route('administrator.jabatans.store'), 'method' => 'post', 'class'=>'uk-form uk-form-horizontal ')); ?>
+	<div class="uk-form-row <?php echo ($errors->has('kd_jab') ? 'has-error' : ''); ?>">
+	    <?php echo Form::labelUk('title', 'Kode Jabatan'); ?>
+	    <?php echo Form::text('kd_jab', null, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan kode jabatan...',
+				'id'          => 'kd_jab',
+				'maxlength'   => '10'
+			)); ?>
+		<?php echo $errors->first('kd_jab', 'Kode Jabatan harus kurang dari 10 karakter'); ?>
+	</div>
+	
+	<div class="uk-form-row <?php echo ($errors->has('nama_jabatan') ? 'has-error' : ''); ?>">
+	    <?php echo Form::labelUk('title', 'Nama Jabatan'); ?>
+	    <?php echo Form::text('nama_jabatan', null, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan nama jabatan...',
+				'id'          => 'nama_jabatan',
+				'maxlength'   => '50'
+			)); ?>
+		<?php echo $errors->first('nama_jabatan', 'Nama Jabatan harus kurang dari 50 karakter'); ?>
+	</div>
+
+	<div class="uk-form-row <?php echo ($errors->has('tun_kes') ? 'has-error' : ''); ?>">
+	    <?php echo Form::labelUk('title', 'Tunjangan Kesehatan'); ?>
+	    <?php echo Form::text('tun_kes', null, array(
+				'class'       => 'uk-form-width-large',
+				'placeholder' => 'Masukkan banyak harga tunjangan kesehatan...',
+				'id'          => 'tun_kes',
+				'maxlength'   => '50'
+			)); ?>
+		<?php echo $errors->first('tun_kes', 'Nama tunjangan kesehatan harus kurang dari 50 karakter'); ?>
+	</div>
+
+	<div class="uk-form-row <?php echo ($errors->has('tun_mkn') ? 'has-error' : ''); ?>">
+	    <?php echo Form::labelUk('title', 'Tunjangan Makanan'); ?>
+	    <?php echo Form::text('tun_mkn', null, array(
+				'class'       => 'uk-form-width-large',
+				'placeholder' => 'Masukkan banyak harga tunjangan makanan...',
+				'id'          => 'tun_mkn',
+				'maxlength'   => '50'
+			)); ?>
+		<?php echo $errors->first('tun_mkn', 'Nama tunjangan makanan harus kurang dari 50 karakter'); ?>
+	</div>
+
+	<div class="uk-form-row <?php echo ($errors->has('tun_transport') ? 'has-error' : ''); ?>">
+	    <?php echo Form::labelUk('title', 'Tunjangan Transportasi'); ?>
+	    <?php echo Form::text('tun_transport', null, array(
+				'class'       => 'uk-form-width-large',
+				'placeholder' => 'Masukkan banyak harga tunjangan transportasi...',
+				'id'          => 'tun_transport',
+				'maxlength'   => '50'
+			)); ?>
+		<?php echo $errors->first('tun_transport', 'Nama tunjangan transportasi harus kurang dari 50 karakter'); ?>
+	</div>
+<?php echo HTML::divider(); ?>
+<div class="uk-form-row">
+    <?php echo Form::submitUk('Simpan'); ?>
+</div>
+
+    <?php echo Form::close(); ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

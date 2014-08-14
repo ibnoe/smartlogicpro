@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Smart Logic Pro</title>
+	
+		<link rel="stylesheet" href="<?php echo asset('packages/uikit/css/uikit.almost-flat.min.css'); ?>" />
+		<link rel="stylesheet" href="<?php echo asset('css/app.css'); ?>" />
+		
+		<script src="<?php echo asset('components/jquery/jquery.min.js'); ?>"></script>
+        <script src="<?php echo asset('packages/uikit/js/uikit.min.js'); ?>"></script>
+		
+		<link href="<?php echo asset('css/bootstrap.min.css'); ?>" rel="stylesheet" media="screen">
+		<link href="<?php echo asset('css/style.css'); ?>" rel="stylesheet" media="screen">
+		<link href="<?php echo asset('foto/favicon.ico'); ?>" rel="shortcut icon" />
+
+		<!-- JavaScript -->
+		<script src="<?php echo asset('js/jquery.min.js'); ?>"></script>
+		<script src="<?php echo asset('js/bootstrap.min.js'); ?>"></script>
+		<script src="<?php echo asset('js/script.js'); ?>"></script>
+	
+        <?php echo $__env->yieldContent('asset'); ?>
+		
+    </head>
+    <body>
+	
+	    <?php echo $__env->make('includes.navbarowner', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	
+		
+      
+                 
+    <!-- .container -->
+    <div class="container-fluid">
+
+	
+	
+      <!-- .row -->
+      <div class="row">
+
+        <!-- #menu -->
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" id="menu">
+          <?php echo $__env->make('includes.menu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        </div>
+        <!-- /#menu -->
+
+        <!-- #konten -->
+        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9" id="konten">
+           <?php echo $__env->yieldContent('content'); ?> 
+        </div>
+        <!-- /#konten -->
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- .container -->
+		
+		
+    <!-- modal -->
+    <?php echo $__env->make('includes.modal', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+
+<!-- start footer-->
+	<?php echo $__env->make('includes.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<!-- end footer-->
+
+            
+       
+
+		
+	
+	
+
+    </body>
+</html>

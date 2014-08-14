@@ -1,0 +1,59 @@
+
+
+<?php $__env->startSection('content'); ?>
+
+     <?php echo Form::model($pembelianimport, array('url' => route('karyawan.pembelianimports.update', ['pembelianimports'=>$pembelianimport->id]),  'method' => 'put', 'class'=>'uk-form uk-form-horizontal')); ?>
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'Nama Pembeli'); ?>
+	    <?php echo Form::text('nama_pembeli', $pembelianimport->nama_pembeli, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan nama pembeli...',
+				'id'          => 'nama_pembeli',
+				'maxlength'   => '50'
+			)); ?>
+	</div>
+	
+
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'no_ekspor'); ?>
+	    <?php echo Form::text('no_ekspor', $pembelianimport->no_ekspor, array(
+				'class'       => 'uk-form-width-large',
+				'placeholder' => 'Masukkan no ekspor...',
+				'id'          => 'no_ekspor',
+				'maxlength'   => '50'
+			)); ?>
+	</div>	
+	
+	
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'penjualan'); ?>
+	    <?php echo Form::text('penjualan', $pembelianimport->penjualan, array(
+				'class'       => 'uk-form-width-large',
+				'placeholder' => 'Masukkan nilai penjualan...',
+				'id'          => 'penjualan',
+				'maxlength'   => '50'
+			)); ?>
+	</div>	
+	
+	
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'ppn'); ?>
+	    <?php echo Form::text('ppn', $pembelianimport->ppn, array(
+				'class'       => 'uk-form-width-large',
+				'placeholder' => 'Masukkan nilai ppn...',
+				'id'          => 'ppn',
+				'maxlength'   => '50'
+			)); ?>
+	</div>		
+	
+	
+	
+	
+<?php echo HTML::divider(); ?>
+<div class="uk-form-row">
+    <?php echo Form::submitUk('Simpan'); ?>
+</div>
+
+    <?php echo Form::close(); ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

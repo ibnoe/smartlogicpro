@@ -1,0 +1,10 @@
+
+
+
+<?php $__env->startSection('content'); ?>
+ <p class="uk-article-lead">Selamat datang </p>
+
+<p>Hai, <?php echo Sentry::getUser()->first_name . ' ' . Sentry::getUser()->last_name; ?>, selamat datang di halaman Karyawan.. </p>
+                <hr class="uk-article-divider">
+
+<?php $__env->stopSection(); ?>

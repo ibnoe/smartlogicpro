@@ -1,0 +1,12 @@
+
+<?php $__env->startSection('title'); ?>
+    <?php echo $title; ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('breadcrumb'); ?>
+    <li><?php echo $title; ?></li>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+
+<?php $__env->stopSection(); ?>

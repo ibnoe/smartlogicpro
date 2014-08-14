@@ -1,0 +1,39 @@
+
+<?php $__env->startSection('content'); ?>
+
+     <?php echo Form::model($golongan, array('url' => route('administrator.golongans.update', ['golongans'=>$golongan->id]),  'method' => 'put', 'class'=>'uk-form uk-form-horizontal')); ?>
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'Kode Golongan'); ?>
+	    <?php echo Form::text('kd_gol', $golongan->kd_gol, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan kode golongan...',
+				'id'          => 'kd_gol',
+				'maxlength'   => '50'
+			)); ?>
+	</div>
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'Golongan Pokok'); ?>
+	    <?php echo Form::text('gol_pok', $golongan->gol_pok, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan nama golongan pokok...',
+				'id'          => 'gol_pok',
+				'maxlength'   => '50'
+			)); ?>
+	</div>
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'Tunjangan Jabatan'); ?>
+	    <?php echo Form::text('tun_jab', $golongan->tun_jab, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan banyak harga tunjangan jabatan...',
+				'id'          => 'tun_jab',
+				'maxlength'   => '50'
+			)); ?>
+	</div>
+<?php echo HTML::divider(); ?>
+<div class="uk-form-row">
+    <?php echo Form::submitUk('Simpan'); ?>
+</div>
+
+    <?php echo Form::close(); ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

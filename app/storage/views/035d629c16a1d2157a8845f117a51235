@@ -1,0 +1,62 @@
+
+
+
+<?php $__env->startSection('asset'); ?>
+    <?php echo $__env->make('layouts.partials.select2', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('breadcrumb'); ?>
+    <li><a href="/">Dashboard</a></li>
+    <li><a href="<?php echo route('marketing.ticket_supports.index'); ?>">Buku</a></li>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+    <?php echo Form::open(array('url' => route('marketing.ticket_supports.store'), 'method' => 'post', 'class'=>'uk-form uk-form-horizontal ')); ?>
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'Kode Marketing'); ?>
+	    <?php echo Form::text('kd_marketing', null, array(
+				'class'       => 'uk-form-width-large',
+				'placeholder' => 'Masukkan kode marketing...',
+				'id'          => 'kd_marketing',
+				'maxlength'   => '50'
+			)); ?>
+	</div>
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'Keterangan'); ?>
+	    <?php echo Form::textarea('keterangan', null, array(
+				'class'       => 'uk-form-width-large',
+				'placeholder' => 'Masukkan keterangan...',
+				'id'          => 'keterangan',
+				'maxlength'   => '50'
+			)); ?>
+	</div>
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'Keterangan'); ?>
+	    <?php echo Form::file('lampiran', null, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Attachment...',
+				'id'          => 'keterangan',
+				'maxlength'   => '50'
+			)); ?>
+	</div>
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'Jenis Ticket'); ?>
+	    <?php echo Form::radio('jenis_ticket', 'low', true); ?> Low
+	    <?php echo Form::radio('jenis_ticket', 'normal', false); ?> Normal
+	    <?php echo Form::radio('jenis_ticket', 'urgent', false); ?> Urgent
+	</div>
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'Status Ticket'); ?>
+	    <?php echo Form::radio('status_ticket', 'open', true); ?> Open
+	    <?php echo Form::radio('status_ticket', 'closed', false); ?> Closed
+	</div>
+
+<?php echo HTML::divider(); ?>
+<div class="uk-form-row">
+    <?php echo Form::submitUk('Simpan'); ?>
+</div>
+
+    <?php echo Form::close(); ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

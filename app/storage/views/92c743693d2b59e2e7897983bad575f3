@@ -1,0 +1,69 @@
+
+
+<?php $__env->startSection('content'); ?>
+
+     <?php echo Form::model($penjualanfakturlengkap, array('url' => route('karyawan.penjualanfakturlengkaps.update', ['penjualanfakturlengkaps'=>$penjualanfakturlengkap->id]),  'method' => 'put', 'class'=>'uk-form uk-form-horizontal')); ?>
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'Nama Pembeli'); ?>
+	    <?php echo Form::text('nama_pembeli', $penjualanfakturlengkap->nama_pembeli, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan nama pembeli...',
+				'id'          => 'nama_pembeli',
+				'maxlength'   => '50'
+			)); ?>
+	</div>
+	
+	
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'Npwp'); ?>
+	    <?php echo Form::text('npwp', $penjualanfakturlengkap->npwp, array(
+				'class'       => 'uk-form-width-large',
+				'placeholder' => 'Masukkan Npwp...',
+				'id'          => 'npwp',
+				'maxlength'   => '50'
+			)); ?>
+	</div>
+	
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'no_faktur'); ?>
+	    <?php echo Form::text('no_faktur', $penjualanfakturlengkap->no_faktur, array(
+				'class'       => 'uk-form-width-large',
+				'placeholder' => 'Masukkan no faktur...',
+				'id'          => 'no_faktur',
+				'maxlength'   => '50'
+			)); ?>
+	</div>
+	
+	
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'penjualan'); ?>
+	    <?php echo Form::text('penjualan', $penjualanfakturlengkap->penjualan, array(
+				'class'       => 'uk-form-width-large',
+				'placeholder' => 'Masukkan nilai penjualan...',
+				'id'          => 'penjualan',
+				'maxlength'   => '50'
+			)); ?>
+	</div>	
+	
+	
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'ppn'); ?>
+	    <?php echo Form::text('ppn', $penjualanfakturlengkap->ppn, array(
+				'class'       => 'uk-form-width-large',
+				'placeholder' => 'Masukkan nilai ppn...',
+				'id'          => 'ppn',
+				'maxlength'   => '50'
+			)); ?>
+	</div>		
+	
+	
+	
+	
+<?php echo HTML::divider(); ?>
+<div class="uk-form-row">
+    <?php echo Form::submitUk('Simpan'); ?>
+</div>
+
+    <?php echo Form::close(); ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

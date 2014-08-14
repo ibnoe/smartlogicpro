@@ -1,0 +1,32 @@
+
+
+<?php $__env->startSection('content'); ?>
+
+     <?php echo Form::model($agama, array('url' => route('administrator.agamas.update', ['agamas'=>$agama->id]),  'method' => 'put', 'class'=>'uk-form uk-form-horizontal')); ?>
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'Kode Agama'); ?>
+	    <?php echo Form::text('kd_agama', $agama->kd_agama, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan kode marketing...',
+				'id'          => 'kd_marketing',
+				'maxlength'   => '50'
+			)); ?>
+	</div>
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'Nama Agama'); ?>
+	    <?php echo Form::text('nama', $agama->nama, array(
+				'class'       => 'uk-form-width-large',
+				'placeholder' => 'Masukkan nama agama...',
+				'id'          => 'keterangan',
+				'maxlength'   => '50'
+			)); ?>
+	</div>
+	
+<?php echo HTML::divider(); ?>
+<div class="uk-form-row">
+    <?php echo Form::submitUk('Simpan'); ?>
+</div>
+
+    <?php echo Form::close(); ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

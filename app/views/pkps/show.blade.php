@@ -1,0 +1,1 @@
+C:\xampp\htdocs\smartlogicpro\app/views/pkps/show.blade.php

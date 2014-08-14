@@ -1,0 +1,70 @@
+
+<?php $__env->startSection('asset'); ?>
+    <?php echo $__env->make('layouts.partials.datatable', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('title'); ?>
+    <?php echo $title; ?>
+<?php $__env->stopSection(); ?>
+
+
+
+<?php $__env->startSection('breadcrumb'); ?>
+    <li><a href="/">Dashboard</a></li>
+    <a href="<?php echo route('marketing.ticket_supports.create'); ?>" class="uk-button uk-button-small" title="Edit">Create New Tickets</a> 
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+
+        
+<?php if (Sentry::getUser()->hasPermission('marketing')): ?>
+
+    <?php echo Datatable::table()
+    ->addColumn('kd_marketing','kd_agenda','nama_agenda','keterangan', '')       // these are the column headings to be shown
+    ->setOptions('aoColumnDefs',array(
+        array(
+            'bVisible' => false,
+            'aTargets' => [0]),
+        array(
+            'sTitle' => 'Kode Marketing',
+            'aTargets' => [1]),
+        array(
+            'sTitle' => 'Kode Agenda',
+            'aTargets' => [2]),
+        array(
+            'sTitle' => 'nama Agenda',
+            'aTargets' => [3]),
+        array(
+            'bSortable' => false,
+            'aTargets' => [4])
+        ))
+    ->setOptions('bProcessing', true)
+    ->setUrl(route('marketing.agendas.index'))   // this is the route where data will be retrieved
+    ->render('datatable.uikit'); ?>
+<?php endif; ?>
+<?php if (Sentry::getUser()->hasPermission('admin')): ?>
+    <?php echo Datatable::table()
+    ->addColumn('kd_marketing','kd_agenda','nama_agenda','keterangan', '')       // these are the column headings to be shown
+    ->setOptions('aoColumnDefs',array(
+        array(
+            'bVisible' => false,
+            'aTargets' => [0]),
+        array(
+            'sTitle' => 'Kode Marketing',
+            'aTargets' => [1]),
+        array(
+            'sTitle' => 'Kode Agenda',
+            'aTargets' => [2]),
+        array(
+            'sTitle' => 'nama Agenda',
+            'aTargets' => [3]),
+        array(
+            'bSortable' => false,
+            'aTargets' => [4])
+        ))
+    ->setOptions('bProcessing', true)
+    ->setUrl(route('administrator.agendas.index'))   // this is the route where data will be retrieved
+    ->render('datatable.uikit'); ?>
+<?php endif; ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

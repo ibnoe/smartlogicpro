@@ -1,0 +1,58 @@
+
+
+<?php $__env->startSection('content'); ?>
+
+     <?php echo Form::model($jabatan, array('url' => route('administrator.jabatans.update', ['jabatans'=>$jabatan->id]),  'method' => 'put', 'class'=>'uk-form uk-form-horizontal')); ?>
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'Kode Jabatan'); ?>
+	    <?php echo Form::text('kd_jab', $jabatan->jd_jab, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan kode jabatan...',
+				'id'          => 'kd_jab',
+				'maxlength'   => '50'
+			)); ?>
+	</div>
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'Nama Jabatan'); ?>
+	    <?php echo Form::text('nama_jabatan', $jabatan->nama_jabatan, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan nama jabatan...',
+				'id'          => 'nama_jabatan',
+				'maxlength'   => '50'
+			)); ?>
+	</div>
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'Tunjangan Kesehatan'); ?>
+	    <?php echo Form::text('tun_kes', $jabatan->tun_kes, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan banyak harga tunjangan kesehatan...',
+				'id'          => 'tun_kes',
+				'maxlength'   => '50'
+			)); ?>
+	</div>
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'Tunjangan Makanan'); ?>
+	    <?php echo Form::text('tun_mkn', $jabatan->tun_mkn, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan banyak harga tunjangan makanan...',
+				'id'          => 'tun_mkn',
+				'maxlength'   => '50'
+			)); ?>
+	</div>
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'Tunjangan Transport'); ?>
+	    <?php echo Form::text('tun_transport', $jabatan->tun_transport, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan banyak harga tunjangan transport...',
+				'id'          => 'tun_transport',
+				'maxlength'   => '50'
+			)); ?>
+	</div>
+<?php echo HTML::divider(); ?>
+<div class="uk-form-row">
+    <?php echo Form::submitUk('Simpan'); ?>
+</div>
+
+    <?php echo Form::close(); ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

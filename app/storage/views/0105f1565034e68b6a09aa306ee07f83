@@ -1,0 +1,80 @@
+
+<?php $__env->startSection('asset'); ?>
+    <?php echo $__env->make('layouts.partials.datatable', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('breadcrumb'); ?>
+    <li><a href="/">Dashboard</a></li>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="uk-grid" data-uk-grid-margin="">
+    <div class="uk-width-medium-2-2">
+        <div class="uk-panel">
+            <h2 class="uk-panel-title">Pembelian Impor</h2>
+			<hr>
+				<a href="<?php echo route('karyawan.pembelianimports.index'); ?>"><img src="<?php echo asset('foto/pembelian import shadow.png'); ?>" align="absmiddle" width=180 height=40></a> 
+				<a href="<?php echo route('karyawan.pembeliandlmnegeris.index'); ?>"><img src="<?php echo asset('foto/pembelian dalam negeri shadow.png'); ?>" align="absmiddle" width=225 height=70></a>
+								
+			<br><br>			
+			
+			
+			
+            <a href="<?php echo route('karyawan.pembelianimports.create'); ?>" class="uk-button uk-button-small" title="Edit">Pembelian Impor</a> 
+
+            <table class="uk-table uk-table-striped">
+            <thead>
+                <tr>
+                    <th>Nama Pembeli</th>
+					<th>No Ekspor</th>
+					<th>Penjualan</th>
+					<th>Ppn</th>
+                    <th width="20%"><center>Action</center></th>
+                </tr>
+            </thead>
+                <tbody>
+                    <?php foreach($data as $value): ?>
+                    <tr>
+                    	<td><?php echo e($value->nama_pembeli); ?></td>                    	                  	
+                    	<td><?php echo e($value->no_ekspor); ?></td>                    	
+                    	<td><?php echo e($value->penjualan); ?></td>                    	
+                    	<td><?php echo e($value->ppn); ?></td>                    	
+
+                        <center><td> 
+                    	<a href="<?php echo route('karyawan.pembelianimports.edit', array($value->id)); ?>" class="uk-button uk-button-small" title="Edit">Edit</a> | 
+                    	<?php echo Form::open(array('url' => route('karyawan.pembelianimports.destroy', ['pembelianimports'=>$value->id]), 'method'=>'delete', 'class'=>'uk-display-inline')); ?>
+						<?php echo Form::submit('delete', array('class' => 'uk-button uk-button-small')); ?>
+						<?php echo Form::close(); ?>
+                        </td></center>
+                    </tr>
+                </tbody>
+                <?php endforeach; ?>
+            </table>
+			
+			
+			
+			<table class="uk-table uk-table-striped">
+            <thead>
+				<tr>
+					<td></td>
+					<td></td>
+					<th class="trbg2">Penjualan</th>
+					<th class="trbg">Ppn</th>
+				</tr>
+                <tr>
+					<td class="trwrapper"></td>
+					<th class="trwrapper" width="30%">Jumlah</th>
+                    <th class="trbg2" width="25%">Rp. <?php echo number_format($totalpenjualanimport,2); ?></th> 
+                    <th class="trbg" width="20%">Rp. <?php echo number_format($totalppnimport,2); ?></th>
+                </tr>
+            </thead>
+            </table>			
+			
+			
+			
+
+        </div>
+    </div>
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

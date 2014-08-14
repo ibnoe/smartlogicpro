@@ -1,0 +1,51 @@
+
+<?php $__env->startSection('asset'); ?>
+    <?php echo $__env->make('layouts.partials.select2', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('breadcrumb'); ?>
+    <li><a href="/">Dashboard</a></li>
+    <li><a href="<?php echo route('administrator.ptkps.index'); ?>">PTKP</a></li>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+    <?php echo Form::open(array('url' => route('administrator.golongans.store'), 'method' => 'post', 'class'=>'uk-form uk-form-horizontal ')); ?>
+	<div class="uk-form-row <?php echo ($errors->has('kd_gol') ? 'has-error' : ''); ?>">
+	    <?php echo Form::labelUk('title', 'Kode Golongan'); ?>
+	    <?php echo Form::text('kd_gol', null, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan kode golongan...',
+				'id'          => 'kd_gol',
+				'maxlength'   => '50'
+			)); ?>
+		<?php echo $errors->first('kd_gol', 'Kode Golongan harus kurang dari 10 karakter'); ?>
+	</div>
+	<div class="uk-form-row <?php echo ($errors->has('gol_pok') ? 'has-error' : ''); ?>">
+	    <?php echo Form::labelUk('title', 'Golongan Pokok'); ?>
+	    <?php echo Form::text('gol_pok', null, array(
+				'class'       => 'uk-form-width-large',
+				'placeholder' => 'Masukkan nama golongan pokok...',
+				'id'          => 'gol_pok',
+				'maxlength'   => '50'
+			)); ?>
+		<?php echo $errors->first('gol_pok', 'Nama Golongan Pokok harus kurang dari 50 karakter'); ?>
+	</div>
+	<div class="uk-form-row <?php echo ($errors->has('tun_jab') ? 'has-error' : ''); ?>">
+	    <?php echo Form::labelUk('title', 'Tunjangan Jabatan'); ?>
+	    <?php echo Form::text('tun_jab', null, array(
+				'class'       => 'uk-form-width-large',
+				'placeholder' => 'Masukkan banyak harga tunjangan jabatan...',
+				'id'          => 'tun_jab',
+				'maxlength'   => '50'
+			)); ?>
+		<?php echo $errors->first('tun_jab', 'Banyak harga tunjangan jabatan harus angka'); ?>
+	</div>
+<?php echo HTML::divider(); ?>
+<div class="uk-form-row">
+    <?php echo Form::submitUk('Simpan'); ?>
+</div>
+
+    <?php echo Form::close(); ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

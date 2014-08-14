@@ -1,0 +1,48 @@
+
+<?php $__env->startSection('asset'); ?>
+    <?php echo $__env->make('layouts.partials.datatable', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+
+
+<?php $__env->startSection('breadcrumb'); ?>
+    <li><a href="/">Dashboard</a></li>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="uk-grid" data-uk-grid-margin="">
+    <div class="uk-width-medium-2-2">
+        <div class="uk-panel">
+            <h2 class="uk-panel-title">Golongan</h2>
+            <a href="<?php echo route('administrator.golongans.create'); ?>" class="uk-button uk-button-small" title="Edit">Tambah Golongan</a> 
+
+            <table class="uk-table uk-table-striped">
+            <thead>
+                <tr>
+                    <th>Kode Golongan</th>
+                    <th>Golongan Pokok</th>
+                    <th>Tunjangan Jabatan</th>
+                    <th width="20%"><center>Action</center></th>
+                </tr>
+            </thead>
+                <tbody>
+                    <?php foreach($data as $value): ?>
+                    <tr>
+                    	<td><?php echo e($value->kd_gol); ?></td>
+                    	<td><?php echo e($value->gol_pok); ?></td>
+                    	<td><?php echo e($value->tun_jab); ?></td>                     	
+                        <center><td> 
+                    	<a href="<?php echo route('administrator.golongans.edit', array($value->id)); ?>" class="uk-button uk-button-small" title="Edit">Edit</a> | 
+                    	<?php echo Form::open(array('url' => route('administrator.golongans.destroy', ['golongans'=>$value->id]), 'method'=>'delete', 'class'=>'uk-display-inline')); ?>
+						<?php echo Form::submit('delete', array('class' => 'uk-button uk-button-small')); ?>
+						<?php echo Form::close(); ?>
+                        </td></center>
+                    </tr>
+                </tbody>
+                <?php endforeach; ?>
+            </table>
+
+        </div>
+    </div>
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

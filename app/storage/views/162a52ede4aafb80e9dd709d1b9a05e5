@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Smart Logic Pro</title>
+        <link rel="stylesheet" href="<?php echo asset('packages/uikit/css/uikit.almost-flat.min.css'); ?>" />
+        <link rel="stylesheet" href="<?php echo asset('css/app.css'); ?>" />
+        <link rel="stylesheet" href="<?php echo asset('css/docs.css'); ?>" />
+        <script src="<?php echo asset('components/jquery/jquery.min.js'); ?>"></script>
+        <script src="<?php echo asset('packages/uikit/js/uikit.min.js'); ?>"></script>
+        <?php echo $__env->yieldContent('asset'); ?>
+    </head>
+    <body>
+    <div class="uk-container uk-container-center uk-margin-top">
+        <nav class="uk-navbar">
+            <a href="#" class="uk-navbar-brand uk-hidden-small">SmartDesainer</a>
+            <ul class="uk-navbar-nav uk-hidden-small">
+                
+            </ul>
+	
+			
+            <div class="uk-navbar-nav uk-navbar-flip">
+                <li class="uk-parent" data-uk-dropdown>
+                    <a href=""><?php echo Sentry::getUser()->first_name . ' ' . Sentry::getUser()->last_name; ?></a>
+                    <div class="uk-dropdown uk-dropdown-navbar">
+                        <ul class="uk-nav uk-nav-navbar">
+                            <li><?php echo link_to_route('home.editpassword', 'Ubah Password'); ?></li>
+                            <li class="uk-nav-divider"></li>
+                            <li><a href="<?php echo URL::to('logout'); ?>">Logout</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </div>
+
+        </nav>
+        <div class="uk-container-center uk-margin-top">
+             <div class="uk-grid" data-uk-grid-margin="">
+        <div class="tm-sidebar uk-width-medium-1-4 uk-hidden-small">
+
+            <ul class="tm-nav uk-nav" data-uk-nav="">
+                <?php if (Sentry::getUser()->hasPermission('admin')): ?>
+                    <li class="uk-nav-header">Home</li>
+                    <?php echo HTML::smartNav(route('dashboard'), 'Dashboard'); ?>
+                    <li class="uk-nav-header">Data Master</li>
+                    
+                    <?php echo HTML::smartNav(route('administrator.agamas.index'), 'Agama'); ?>
+                    <?php echo HTML::smartNav(route('administrator.departements.index'), 'Departement'); ?>
+                    <?php echo HTML::smartNav(route('administrator.jabatan.index'), 'Jabatan'); ?>
+                    <?php echo HTML::smartNav(route('administrator.golongan.index'), 'Golongan'); ?>
+                    <?php echo HTML::smartNav(route('administrator.ptkp.index'), 'PTKP'); ?>
+                    <?php echo HTML::smartNav(route('administrator.perusahaan.index'), 'Perusahaan'); ?>
+                    <?php echo HTML::smartNav(route('administrator.marketing.index'), 'Marketing'); ?>
+                    <?php echo HTML::smartNav(route('administrator.karyawan.index'), 'Karyawan'); ?>
+                    <?php echo HTML::smartNav(route('administrator.owner.index'), 'Owner'); ?>
+                    <?php echo HTML::smartNav(route('administrator.harga.index'), 'Harga'); ?>
+                    <?php echo HTML::smartNav(route('administrator.potongan.index'), 'Potongan'); ?>
+                    <?php echo HTML::smartNav(route('administrator.pkp.index'), 'PKP'); ?>
+                    <?php echo HTML::smartNav(route('administrator.detailgaji.index'), 'Detail Gaji'); ?>
+                    <?php echo HTML::smartNav(route('administrator.absensi.index'), 'Absensi'); ?>
+                    <?php echo HTML::smartNav(route('administrator.tunjangan.index'), 'Tunjangan'); ?>
+                    <?php echo HTML::smartNav(route('administrator.lembur.index'), 'Lembur'); ?>
+                    <?php echo HTML::smartNav(route('administrator.penilaian.index'), 'Penilaian'); ?>
+                    <?php echo HTML::smartNav(route('administrator.pph.index'), 'PPH'); ?>
+                    <?php echo HTML::smartNav(route('administrator.supportticket.index'), 'Support Ticket'); ?>
+                    <?php echo HTML::smartNav(route('administrator.agendas.index'), 'Agenda'); ?>
+                    <?php echo HTML::smartNav(route('administrator.pph42.index'), 'PPH 42'); ?>
+                    <?php echo HTML::smartNav(route('administrator.gaji.index'), 'Gaji'); ?>
+                    <?php echo HTML::smartNav(route('administrator.servis.index'), 'Servis'); ?>
+                    <?php echo HTML::smartNav(route('administrator.ppn.index'), 'PPN'); ?>
+                    <?php echo HTML::smartNav(route('administrator.status.index'), 'Status'); ?>
+                    <li class="uk-nav-header">Module</li>
+                    
+                    <li class="uk-nav-header">Pengaturan</li>
+                    <?php echo HTML::smartNav(route('administrator.profile.index'), 'Profile'); ?>
+                    <?php echo HTML::smartNav(route('administrator.profileprusahaan.index'), 'Perusahaan'); ?>
+                    <li class="uk-nav-header">Akun</li>
+                    <?php echo HTML::smartNav(route('logout'), 'Logout'); ?>
+                <?php endif; ?>
+                <?php if (Sentry::getUser()->hasPermission('administrator-owner')): ?>
+                    <li class="uk-nav-header">Home</li>
+                    <?php echo HTML::smartNav(route('dashboard'), 'Dashboard'); ?>
+                <?php endif; ?>
+                <?php if (Sentry::getUser()->hasPermission('marketing')): ?>
+                    <li class="uk-nav-header">Home</li>
+                    <?php echo HTML::smartNav(route('dashboard'), 'Dashboard'); ?>
+                    <li class="uk-nav-header">Data Owners</li>
+                    <?php echo HTML::smartNav(route('marketing.owners.index'), 'Expired Client'); ?>
+                    <?php echo HTML::smartNav(route('marketing.owners.index'), 'Waiting List'); ?>
+                    <?php echo HTML::smartNav(route('marketing.owners.index'), 'Data Owner'); ?>
+                    <li class="uk-nav-header">Data Master</li>
+                    <?php echo HTML::smartNav(route('marketing.agendas.index'), 'Agenda'); ?>
+                    <?php echo HTML::smartNav(route('marketing.ticket_supports.index'), 'Support Tickets'); ?>
+
+                <?php endif; ?>
+                <?php if (Sentry::getUser()->hasPermission('employer')): ?>
+                    <li class="uk-nav-header">Home</li>
+                    <?php echo HTML::smartNav(route('dashboard'), 'Dashboard'); ?>
+                <?php endif; ?>
+              
+            </ul>
+
+        </div>
+        <div class="tm-main uk-width-medium-3-4">
+
+            <article class="uk-article">
+
+                <h1 class="uk-article-title"></h1>
+
+               
+                
+
+               
+                   <?php echo $__env->yieldContent('content'); ?> 
+                
+                
+            </article>
+
+        </div>
+    </div>
+
+            
+        </div>
+    </div>
+    <div class="tm-footer">
+            <div class="uk-container uk-container-center uk-text-center">
+                <div class="uk-panel">
+                    <p>Made by Smart Logic Pro.</p>
+                </div>
+
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+
+
+
+<?php $__env->startSection('asset'); ?>
+    <?php echo $__env->make('layouts.partials.select2', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('breadcrumb'); ?>
+    <li><a href="/">Dashboard</a></li>
+    <li><a href="<?php echo route('marketing.ticket_supports.index'); ?>">Buku</a></li>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+    <?php echo Form::open(array('class'=>'uk-form uk-form-horizontal ')); ?>
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'Kode Marketing'); ?>
+	    <?php echo $ticketsupport->kd_marketing; ?>
+	</div>
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'Keterangan'); ?>
+	    <?php echo $ticketsupport->keterangan; ?>
+	</div>
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'Lampiran'); ?>
+	    <?php echo $ticketsupport->lampiran; ?>
+	</div>
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'Jenis Ticket'); ?>
+	    <?php echo $ticketsupport->jenis_ticket; ?>
+	</div>
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'Status Ticket'); ?>
+	    <?php echo $ticketsupport->status_ticket; ?>
+	</div>
+	<div class="uk-form-row">
+	    <a href="<?php echo route('marketing.ticket_supports.index'); ?>">Kembali ke Halaman Support Ticket</a>
+	</div>
+	
+    <?php echo Form::close(); ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
