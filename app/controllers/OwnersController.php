@@ -9,7 +9,7 @@ class OwnersController extends \BaseController {
 	 */
 	public function index()
 	{
-		$data = Owner::all();
+		$data = Owner::data();
 
 		return View::make('owners.index', compact('data'));
 	}

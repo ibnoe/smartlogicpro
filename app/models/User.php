@@ -10,13 +10,12 @@ class User extends SentryUserModel
         'first_name' => 'required',
         'email' => 'required|email|unique:users,email,:id',
         'password' => 'confirmed|required|min:5',
-		'kd_perusahaan' => 'required',
-		'kd_karyawan' => 'required', 
+		'uid' => 'required',
         'recaptcha_response_field' => 'required|recaptcha',
     ];
 
     // Don't forget to fill this array
-    protected $fillable = ['first_name', 'last_name', 'email', 'password','kd_perusahaan', 'kd_karyawan'];
+    protected $fillable = ['first_name', 'last_name', 'email', 'password','uid'];
 
 	/**
 	 * Relasi pivot (Many-to-Many) dengan buku

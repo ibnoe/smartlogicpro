@@ -12,8 +12,8 @@
 <div class="uk-grid" data-uk-grid-margin="">
     <div class="uk-width-medium-2-2">
         <div class="uk-panel">
-            <h2 class="uk-panel-title">Agama</h2>
-            <a href="{{ route('administrator.agamas.create') }}" class="uk-button uk-button-small" title="Edit">New Agama</a> 
+            <h2 class="uk-panel-title">Data Owner Perusahaan</h2>
+            <a href="{{ route('administrator.owners.create') }}" class="uk-button uk-button-small" title="Edit">Data Owner Baru</a> 
 
             <table class="uk-table uk-table-striped">
             <thead>
@@ -22,7 +22,6 @@
                     <th>Email</th>
                     <th>Nama Perusahaan</th>
                     <th>Kode Perusahaan</th>
-                    <th>NPWP</th>
                     <th>Status</th>
                     <th width="10%"><center>Action</center></th>
                 </tr>
@@ -32,7 +31,6 @@
                     <tr>
                     	<td>{{{ $value->kd_agama }}}</td>
                     	<td>{{{ $value->nama }}}</td>
-                    	<td>{{{ $value->nama }}}</td> 
                     	<td>{{{ $value->nama }}}</td> 
                     	<td>{{{ $value->nama }}}</td> 
                     	<td>{{{ $value->nama }}}</td>                     	

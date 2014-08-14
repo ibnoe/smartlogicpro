@@ -9,9 +9,9 @@ class KaryawansController extends \BaseController {
 	 */
 	public function index()
 	{
-		$karyawans = Karyawan::all();
+		$data = Karyawan::all();
 
-		return View::make('karyawans.index', compact('karyawans'));
+		return View::make('karyawans.index', compact('data'));
 	}
 	
 	

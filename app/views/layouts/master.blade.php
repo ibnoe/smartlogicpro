@@ -8,10 +8,13 @@
 		
 		<script src="{{ asset('components/jquery/jquery.min.js')}}"></script>
         <script src="{{ asset('packages/uikit/js/uikit.min.js')}}"></script>
+        <script src="{{ asset('packages/uikit/js/addons/datepicker.min.js')}}"></script>
 		
 		<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
 		<link href="{{ asset('css/style.css') }}" rel="stylesheet" media="screen">
+		<link href="{{ asset('packages/uikit/css/addons/uikit.addons.min.css') }}" rel="stylesheet" media="screen">
 		<link href="{{ asset('foto/favicon.ico') }}" rel="shortcut icon" />
+
 
 		<!-- JavaScript -->
 		<script src="{{ asset('js/jquery.min.js') }}"></script>

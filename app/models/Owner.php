@@ -40,6 +40,13 @@ class Owner extends Eloquent{
     
       ->paginate(10);
   }
+  public static function data() {
+    return DB::table('modules')
+      ->join('modulegroups', 'modules.id_kelompokmodule', '=', 'modulegroups.id')
+      ->select('modulegroups.nama_grup_module', 'modulegroups.kd_grup', 'modules.id','modules.nama_modul', 'modules.url_module', 'modules.status_module', 'modules.icon_module')
+      ->orderBy('modules.id_kelompokmodule', 'asc')
+      ->get();
+  }
 
   /**
    * urut user
