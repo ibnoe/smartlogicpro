@@ -84,6 +84,15 @@
                         'placeholder' => "Pilih Status Pernikahan")) }}
 </div>
 <div class="uk-form-row">
+    {{ Form::labelUk('ui', '') }}
+    {{ Form::select('ui', $data , Input::old('UID')) }}
+</div>
+<div class="uk-form-row">
+    {{ Form::labelUk('uid', '') }}
+    {{ Form::select('uid', $datalist , Input::old('UID')) }}
+</div>
+	
+<div class="uk-form-row">
 {{ Form::labelUk('title', 'Kode Karyawan') }}
 <input type="text" class="uk-form-width-medium" name="kd_karyawan" value="KR00<?php echo date('y')?>-<?php echo date('m-d')?>-<?php echo date('h-i')?>" disabled>
 </div>
@@ -188,5 +197,8 @@ $(document).ready(function() { $("#kd_jab").select2(); });
 </script>
 <script>
 $(document).ready(function() { $("#kd_statuskawin").select2(); });
+</script>
+<script>
+$(document).ready(function() { $("#uid").select2(); });
 </script>
 @stop
