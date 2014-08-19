@@ -1,0 +1,51 @@
+
+<?php $__env->startSection('asset'); ?>
+    <?php echo $__env->make('layouts.partials.select2', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('breadcrumb'); ?>
+    <li><a href="/">Dashboard</a></li>
+    <li><a href="<?php echo route('administrator.agamas.index'); ?>">Agama</a></li>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+    <?php echo Form::open(array('url' => route('administrator.pkps.store'), 'method' => 'post', 'class'=>'uk-form uk-form-horizontal ')); ?>
+	<div class="uk-form-row <?php echo ($errors->has('kode_pkp') ? 'has-error' : ''); ?>">
+	    <?php echo Form::labelUk('title', 'Kode PKP'); ?>
+	    <?php echo Form::text('kode_pkp', null, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan kode PKP...',
+				'id'          => 'kode_pkp',
+				'maxlength'   => '50'
+			)); ?>
+		<?php echo $errors->first('kode_pkp', 'Kode PKP harus diisi'); ?>
+	</div>
+	<div class="uk-form-row <?php echo ($errors->has('batas_pkp') ? 'has-error' : ''); ?>">
+	    <?php echo Form::labelUk('title', 'Batas PKP'); ?>
+	    <?php echo Form::text('batas_pkp', null, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan batas PKP...',
+				'id'          => 'batas_pkp',
+				'maxlength'   => '50'
+			)); ?>
+		<?php echo $errors->first('batas_pkp', 'Batas PKP harus diisi'); ?>
+	</div>
+	<div class="uk-form-row <?php echo ($errors->has('tarif') ? 'has-error' : ''); ?>">
+	    <?php echo Form::labelUk('title', 'Tarif PKP'); ?>
+	    <?php echo Form::text('tarif', null, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan tarif PKP...',
+				'id'          => 'tarif',
+				'maxlength'   => '50'
+			)); ?>
+		<?php echo $errors->first('tarif', 'Tarif PKP harus diisi dan merupakan angka'); ?>
+	</div>
+<?php echo HTML::divider(); ?>
+<div class="uk-form-row">
+    <?php echo Form::submitUk('Simpan'); ?>
+</div>
+
+    <?php echo Form::close(); ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

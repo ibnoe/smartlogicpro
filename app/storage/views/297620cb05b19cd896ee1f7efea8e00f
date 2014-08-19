@@ -1,0 +1,40 @@
+
+
+<?php $__env->startSection('content'); ?>
+
+     <?php echo Form::model($pkp, array('url' => route('administrator.pkps.update', ['pkps'=>$pkp->id]),  'method' => 'put', 'class'=>'uk-form uk-form-horizontal')); ?>
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'Kode PKP'); ?>
+	    <?php echo Form::text('kode_pkp', $pkp->kode_pkp, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan kode PKP...',
+				'id'          => 'kode_pkp',
+				'maxlength'   => '50'
+			)); ?>
+	</div>
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'Batas PKP'); ?>
+	    <?php echo Form::text('batas_pkp', $pkp->batas_pkp, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan nama agama...',
+				'id'          => 'batas_pkp',
+				'maxlength'   => '50'
+			)); ?>
+	</div>
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'Tarif PKP'); ?>
+	    <?php echo Form::text('tarif', $pkp->tarif, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan Tarif PKP...',
+				'id'          => 'tarif',
+				'maxlength'   => '50'
+			)); ?>
+	</div>
+<?php echo HTML::divider(); ?>
+<div class="uk-form-row">
+    <?php echo Form::submitUk('Update'); ?>
+</div>
+
+    <?php echo Form::close(); ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

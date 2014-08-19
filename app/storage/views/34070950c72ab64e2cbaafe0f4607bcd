@@ -1,0 +1,50 @@
+
+<?php $__env->startSection('asset'); ?>
+    <?php echo $__env->make('layouts.partials.select2', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('breadcrumb'); ?>
+    <li><a href="/">Dashboard</a></li>
+    <li><a href="<?php echo route('administrator.hargas.index'); ?>">Harga</a></li>
+
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
+    <?php echo Form::open(array('url' => route('administrator.hargas.store'), 'method' => 'post', 'class'=>'uk-form uk-form-horizontal ')); ?>
+    <div class="uk-form-row <?php echo ($errors->has('kd_harga') ? 'has-error' : ''); ?>">
+	    <?php echo Form::labelUk('title', 'Kode Harga'); ?>
+	    <?php echo Form::text('kd_harga', null, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan Kode Harga...',
+				'id'          => 'kd_harga',
+				'maxlength'   => '50'
+			)); ?>
+		<?php echo $errors->first('kd_harga', 'Kode Harga harus diisi'); ?>
+	</div>
+	<div class="uk-form-row <?php echo ($errors->has('nama_harga') ? 'has-error' : ''); ?>">
+	    <?php echo Form::labelUk('title', 'Nama Harga'); ?>
+	    <?php echo Form::text('nama_harga', null, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan Nama Harga...',
+				'id'          => 'nama_harga',
+				'maxlength'   => '50'
+			)); ?>
+		<?php echo $errors->first('nama_harga', 'Nama Harga harus diisi'); ?>
+	</div>
+	<div class="uk-form-row <?php echo ($errors->has('harga') ? 'has-error' : ''); ?>">
+	    <?php echo Form::labelUk('title', 'Nama Agama'); ?>
+	    <?php echo Form::text('harga', null, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan Harga...',
+				'id'          => 'harga',
+				'maxlength'   => '50'
+			)); ?>
+		<?php echo $errors->first('harga', 'Harga harus diisi dan merupakan angka'); ?>
+	</div>
+<?php echo HTML::divider(); ?>
+<div class="uk-form-row">
+    <?php echo Form::submitUk('Simpan'); ?>
+</div>
+
+    <?php echo Form::close(); ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

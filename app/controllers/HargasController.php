@@ -9,9 +9,9 @@ class HargasController extends \BaseController {
 	 */
 	public function index()
 	{
-		$hargas = Harga::all();
+		$data = Harga::data();
 
-		return View::make('hargas.index', compact('hargas'));
+		return View::make('hargas.indexs', compact('data'));
 	}
 
 	/**

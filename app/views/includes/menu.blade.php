@@ -334,7 +334,7 @@
 
       <!--Potongan -->
       <li class="#">
-        <a href="{{ route('administrator.hargas.index') }}">
+        <a href="{{ route('administrator.potongans.index') }}">
           <img src="{{ asset('foto/department.png') }}" align="absmiddle" width=20 height=20> Potongan
         </a>
       </li>

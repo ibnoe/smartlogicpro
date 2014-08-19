@@ -9,12 +9,11 @@ class PkpsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$pkps = Pkp::all();
+		$data = Pkp::all();
 
-		return View::make('pkps.index', compact('pkps'));
+		return View::make('pkps.index', compact('data'));
 	}
 
-	
 	/**
 	 * Show the form for creating a new pkp
 	 *
@@ -41,7 +40,7 @@ class PkpsController extends \BaseController {
 
 		Pkp::create($data);
 
-		return Redirect::route('pkps.index');
+		return Redirect::route('administrator.pkps.index');
 	}
 
 	/**
@@ -89,7 +88,7 @@ class PkpsController extends \BaseController {
 
 		$pkp->update($data);
 
-		return Redirect::route('pkps.index');
+		return Redirect::route('administrator.pkps.index');
 	}
 
 	/**
@@ -102,7 +101,7 @@ class PkpsController extends \BaseController {
 	{
 		Pkp::destroy($id);
 
-		return Redirect::route('pkps.index');
+		return Redirect::route('administrator.pkps.index');
 	}
 
 }
