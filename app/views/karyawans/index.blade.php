@@ -29,7 +29,7 @@
                 <tbody>
                     @foreach($data as $value)
                     <tr>
-                    	<td>{{{ $value->kd_Karyawan }}}</td>
+                    	<td>{{{ $value->kd_karyawan }}}</td>
                     	<td>{{{ $value->nama }}}</td>                    	
                     	<td>{{{ $value->nama }}}</td>                    	
                     	<td>{{{ $value->nama }}}</td>                    	

@@ -21,19 +21,17 @@
                     <th>Nama</th>
                     <th>Email</th>
                     <th>Nama Perusahaan</th>
-                    <th>Kode Perusahaan</th>
-                    <th>Status</th>
+
                     <th width="10%"><center>Action</center></th>
                 </tr>
             </thead>
                 <tbody>
                     @foreach($data as $value)
                     <tr>
-                    	<td>{{{ $value->kd_agama }}}</td>
-                    	<td>{{{ $value->nama }}}</td>
-                    	<td>{{{ $value->nama }}}</td> 
-                    	<td>{{{ $value->nama }}}</td> 
-                    	<td>{{{ $value->nama }}}</td>                     	
+                    	<td>{{{ $value->first_name }}} {{{ $value->last_name }}}</td>
+                    	<td>{{{ $value->email }}}</td>
+                    	<td>{{{ $value->nama_perusahaan }}}</td> 
+           	
                         <td> <center>
                     	  <div class="uk-button-group">
                             <button class="uk-button uk-button-primary">Action</button>

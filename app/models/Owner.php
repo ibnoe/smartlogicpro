@@ -15,7 +15,7 @@ class Owner extends Eloquent{
 	 *
 	 * @var array
 	 */
-  protected $fillable = array('user_id', 'kd_perusahaan', 'kd_marketing', 'kd_owner', 'handphone', 'npwp', 'alamat', 'kota', 'propinsi', 'kode_pos', 'tanggal_daftar', 'tanggal_aktifasi', 'status');
+  protected $fillable = array('uid', 'kd_perusahaan', 'kd_marketing', 'kd_owner', 'handphone', 'npwp', 'alamat', 'kota', 'propinsi', 'kode_pos', 'tanggal_daftar', 'tanggal_aktifasi', 'status');
 
 	
   /**
@@ -36,9 +36,11 @@ class Owner extends Eloquent{
    */
   public static function data()
   {
-    return Owner::orderBy('kd_karyawan', 'asc')
-    
-      ->paginate(10);
+    return $data = DB::table('users')
+		->join('users_groups', 'users.id', '=', 'users_groups.user_id')
+		->join('groups', 'users_groups.group_id', '=', 'groups.id')
+		->join('perusahaans', 'users.id', '=', 'perusahaans.users_id')
+		->get();
   }
 
   /**

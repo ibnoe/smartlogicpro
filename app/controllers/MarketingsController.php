@@ -9,9 +9,9 @@ class MarketingsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$marketings = Marketing::all();
+		$data = Marketing::data();
 
-		return View::make('marketings.index', compact('marketings'));
+		return View::make('marketings.index', compact('data'));
 	}
 
 	/**
@@ -40,7 +40,7 @@ class MarketingsController extends \BaseController {
 
 		Marketing::create($data);
 
-		return Redirect::route('marketings.index');
+		return Redirect::route('administrator.marketings.index');
 	}
 
 	/**
@@ -88,7 +88,7 @@ class MarketingsController extends \BaseController {
 
 		$marketing->update($data);
 
-		return Redirect::route('marketings.index');
+		return Redirect::route('administrator.marketings.index');
 	}
 
 	/**
@@ -101,7 +101,7 @@ class MarketingsController extends \BaseController {
 	{
 		Marketing::destroy($id);
 
-		return Redirect::route('marketings.index');
+		return Redirect::route('administrator.marketings.index');
 	}
 
 }
