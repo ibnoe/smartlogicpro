@@ -334,7 +334,7 @@
 
       <!--Potongan -->
       <li class="#">
-        <a href="<?php echo route('administrator.hargas.index'); ?>">
+        <a href="<?php echo route('administrator.potongans.index'); ?>">
           <img src="<?php echo asset('foto/department.png'); ?>" align="absmiddle" width=20 height=20> Potongan
         </a>
       </li>
