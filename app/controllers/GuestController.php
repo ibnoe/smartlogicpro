@@ -70,7 +70,7 @@ class GuestController extends BaseController {
                 'email' => Input :: get('email'),
                  'password' => Input :: get('password'),
                  'first_name' => Input :: get('first_name'),
-                 'last_name' => Input :: get('last_name')
+                 'last_name' => Input :: get('last_name'),
                  'uid' => Input :: get('uid')
                 ), false);
         

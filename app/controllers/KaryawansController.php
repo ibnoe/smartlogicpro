@@ -9,7 +9,7 @@ class KaryawansController extends \BaseController {
 	 */
 	public function index()
 	{
-		$data = Karyawan::all();
+		$data = Karyawan::data();
 
 		return View::make('karyawans.index', compact('data'));
 	}
@@ -187,9 +187,9 @@ class KaryawansController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		$owner = Owner::find($id);
+		$karyawan = Karyawan::find($id);
 
-		return View::make('owners.edit', compact('owner'));
+		return View::make('karyawans.edit', compact('karyawan'));
 	}
 
 	/**

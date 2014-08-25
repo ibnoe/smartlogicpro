@@ -9,9 +9,9 @@ class StatusesController extends \BaseController {
 	 */
 	public function index()
 	{
-		$statuses = Status::all();
+		$data = Status::all();
 
-		return View::make('statuses.index', compact('statuses'));
+		return View::make('statuses.index', compact('data'));
 	}
 
 	/**
@@ -40,7 +40,7 @@ class StatusesController extends \BaseController {
 
 		Status::create($data);
 
-		return Redirect::route('statuses.index');
+		return Redirect::route('administrator.statuses.index');
 	}
 
 	/**
@@ -88,7 +88,7 @@ class StatusesController extends \BaseController {
 
 		$status->update($data);
 
-		return Redirect::route('statuses.index');
+		return Redirect::route('administrator.statuses.index');
 	}
 
 	/**
@@ -101,7 +101,7 @@ class StatusesController extends \BaseController {
 	{
 		Status::destroy($id);
 
-		return Redirect::route('statuses.index');
+		return Redirect::route('administrator.statuses.index');
 	}
 
 }

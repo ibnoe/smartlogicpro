@@ -9,9 +9,9 @@ class PotongansController extends \BaseController {
 	 */
 	public function index()
 	{
-		$potongans = Potongan::all();
+		$data = Potongan::all();
 
-		return View::make('potongans.index', compact('potongans'));
+		return View::make('potongans.index', compact('data'));
 	}
 
 	/**
@@ -40,7 +40,7 @@ class PotongansController extends \BaseController {
 
 		Potongan::create($data);
 
-		return Redirect::route('potongans.index');
+		return Redirect::route('administrator.potongans.index');
 	}
 
 	/**
@@ -88,7 +88,7 @@ class PotongansController extends \BaseController {
 
 		$potongan->update($data);
 
-		return Redirect::route('potongans.index');
+		return Redirect::route('administrator.potongans.index');
 	}
 
 	/**
@@ -101,7 +101,7 @@ class PotongansController extends \BaseController {
 	{
 		Potongan::destroy($id);
 
-		return Redirect::route('potongans.index');
+		return Redirect::route('administrator.potongans.index');
 	}
 
 }

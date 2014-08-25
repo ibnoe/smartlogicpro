@@ -1,0 +1,29 @@
+<?php $__env->startSection('content'); ?>
+     <?php echo Form::model($potongan, array('url' => route('administrator.potongans.update', ['potongans'=>$potongan->id]),  'method' => 'put', 'class'=>'uk-form uk-form-horizontal')); ?>
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'Kode Potongan'); ?>
+	    <?php echo Form::text('kode_potongan', $potongan->kode_potongan, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan kode potongan...',
+				'id'          => 'kode_potongan',
+				'maxlength'   => '50'
+			)); ?>
+	</div>
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'Nama Potongan'); ?>
+	    <?php echo Form::text('nama_potongan', $potongan->nama_potongan, array(
+				'class'       => 'uk-form-width-large',
+				'placeholder' => 'Masukkan nama potongan...',
+				'id'          => 'nama_potongan',
+				'maxlength'   => '50'
+			)); ?>
+	</div>
+	
+<?php echo HTML::divider(); ?>
+<div class="uk-form-row">
+    <?php echo Form::submitUk('Update'); ?>
+</div>
+
+    <?php echo Form::close(); ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

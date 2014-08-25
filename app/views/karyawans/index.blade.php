@@ -20,20 +20,21 @@
                 <tr>
                     <th>Nama Lengkap</th>
                     <th>NIK</th>
-                    <th>Perusahaan</th>
+                    <th>Alamat</th>
                     <th>Jabatan</th>
-                    <th>Golongan</th>
-                    <th width="20%"><center>Action</center></th>
+                    <th>No Telepon</th>
+                    <th width="10%"><center>Action</center></th>
                 </tr>
             </thead>
                 <tbody>
                     @foreach($data as $value)
                     <tr>
-                    	<td>{{{ $value->kd_karyawan }}}</td>
-                    	<td>{{{ $value->nama }}}</td>                    	
-                    	<td>{{{ $value->nama }}}</td>                    	
-                    	<td>{{{ $value->nama }}}</td>                    	
-                    	<td>{{{ $value->nama }}}</td>                    	
+                    	<td>{{{ $value->first_name }}} {{{ $value->last_name }}}</td>
+                    	<td>{{{ $value->nik }}}</td>
+                    	<td>{{{ $value->alamat }}}</td>
+                    	<td>{{{ $value->nama_jabatan }}}</td>
+                    	<td>{{{ $value->no_telephone }}}</td>
+                  	
                         <td> 
 							<div class="uk-button-group">
 								<button class="uk-button uk-button-primary">Action</button>
@@ -41,7 +42,7 @@
 									<a href="#" class="uk-button uk-button-primary"><i class="uk-icon-caret-down"></i></a>
 									<div class="uk-dropdown uk-dropdown-small">
 										<ul class="uk-nav uk-nav-dropdown">
-											<li><center><a href="{{ route('administrator.karyawans.edit', array($value->id)) }}" title="Edit">Edit</center></a></li>
+											<li><center><a href="{{ route('administrator.karyawans.edit', array($value->uid)) }}" title="Edit">Edit</center></a></li>
 											<li><center>
 												{{ Form::open(array('url' => route('administrator.karyawans.destroy', ['karyawans'=>$value->id]), 'method'=>'delete', 'class'=>'uk-display-inline')) }}
 												{{ Form::submit('Delete', array('class' => 'uk-button-link')) }}
