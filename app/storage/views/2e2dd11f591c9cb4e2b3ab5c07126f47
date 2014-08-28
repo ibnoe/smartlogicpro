@@ -1,0 +1,65 @@
+
+
+
+<?php $__env->startSection('asset'); ?>
+    <?php echo $__env->make('layouts.partials.select2', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+
+
+<?php $__env->startSection('breadcrumb'); ?>
+    <li><a href="/">Dashboard</a></li>
+    <li><a href="<?php echo route('administrator.modules.index'); ?>">Module</a></li>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+    <?php echo Form::open(array('url' => route('administrator.modules.store'), 'method' => 'post', 'class'=>'uk-form uk-form-horizontal ', 'files'=> 'true', 'method' => 'post')); ?>
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'Nama Module'); ?>
+	    <?php echo Form::text('nama_modul', null, array(
+				'class'       => 'uk-form-width-large',
+				'placeholder' => 'Masukkan nama module...',
+				'id'          => 'nama_modul',
+				'maxlength'   => '50'
+			)); ?>
+	</div>
+	
+	<div class="uk-form-row">
+    <?php echo Form::labelUk('title', 'Module Group'); ?>
+    <?php echo Form::select('id_kelompokmodule', array(''=>'')+ModuleGroup::lists('nama_grup_module','id'), null, array(
+				'placeholder' => 'Masukkan url module...',
+				'id'          => 'id_kelompokmodule',
+
+    )); ?>
+	</div>
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'URL Module'); ?>
+	    <?php echo Form::text('url_module', null, array(
+				'class'       => 'uk-form-width-large',
+				'placeholder' => 'Masukkan url module...',
+				'id'          => 'url_module',
+			)); ?>
+	</div>
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'Status Module'); ?>
+	    <?php echo Form::radio('status_module', 'active', true); ?> Active
+	    <?php echo Form::radio('status_module', 'inactive', false); ?> Inactive
+	</div>
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'URL Module'); ?>
+	    <?php echo Form::file('icon_module', null, array(
+				'class'       => 'uk-form-width-large',
+				'placeholder' => 'Masukkan icon module...',
+				'id'          => 'icon_module',
+			)); ?>
+	</div>
+<?php echo HTML::divider(); ?>
+<div class="uk-form-row">
+    <?php echo Form::submitUk('Simpan'); ?>
+</div>
+<script>
+$(document).ready(function() { $("#id_kelompokmodule").select2(); });
+</script>
+    <?php echo Form::close(); ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

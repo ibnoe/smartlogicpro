@@ -1,0 +1,52 @@
+
+<?php $__env->startSection('asset'); ?>
+    <?php echo $__env->make('layouts.partials.datatable', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+
+
+<?php $__env->startSection('breadcrumb'); ?>
+    <li><a href="/">Jabatan</a></li>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="uk-grid" data-uk-grid-margin="">
+    <div class="uk-width-medium-2-2">
+        <div class="uk-panel">
+            <h2 class="uk-panel-title">Jabatan</h2>
+            <a href="<?php echo route('administrator.jabatans.create'); ?>" class="uk-button uk-button-small" title="Edit">Jabatan Baru</a> 
+
+            <table class="uk-table uk-table-striped">
+            <thead>
+                <tr>
+                    <th>Kode Jabatan</th>
+                    <th>Nama Jabatan</th>
+                    <th>Tunjangan Kesehatan</th>
+                    <th>Tunjangan Makan</th>
+                    <th>Tunjangan Transport</th>
+                    <th width="20%"><center>Action</center></th>
+                </tr>
+            </thead>
+                <tbody>
+                    <?php foreach($data as $value): ?>
+                    <tr>
+                    	<td><?php echo e($value->kd_jab); ?></td>
+                    	<td><?php echo e($value->nama_jabatan); ?></td>
+                    	<td><?php echo e($value->tun_kes); ?></td>
+                    	<td><?php echo e($value->tun_mkn); ?></td>
+                    	<td><?php echo e($value->tun_transport); ?></td>                    	
+                        <center><td> 
+                    	<a href="<?php echo route('administrator.jabatans.edit', array($value->id)); ?>" class="uk-button uk-button-small" title="Edit">Edit</a> | 
+                    	<?php echo Form::open(array('url' => route('administrator.jabatans.destroy', ['jabatans'=>$value->id]), 'method'=>'delete', 'class'=>'uk-display-inline')); ?>
+						<?php echo Form::submit('delete', array('class' => 'uk-button uk-button-small')); ?>
+						<?php echo Form::close(); ?>
+                        </td></center>
+                    </tr>
+                </tbody>
+                <?php endforeach; ?>
+            </table>
+
+        </div>
+    </div>
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

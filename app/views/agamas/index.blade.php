@@ -13,7 +13,7 @@
     <div class="uk-width-medium-2-2">
         <div class="uk-panel">
             <h2 class="uk-panel-title">Agama</h2>
-            <a href="{{ route('administrator.karyawans.create') }}" class="uk-button uk-button-small" title="Edit">New Agama</a> 
+            <a href="{{ route('administrator.agamas.create') }}" class="uk-button uk-button-small" title="Edit">New Agama</a> 
 
             <table class="uk-table uk-table-striped">
             <thead>

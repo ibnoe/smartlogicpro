@@ -9,9 +9,9 @@ class AbsensisController extends \BaseController {
 	 */
 	public function index()
 	{
-		$absensis = Absensi::all();
+		$data = Absensi::dataindex();
 
-		return View::make('absensis.index', compact('absensis'));
+		return View::make('absensis.index', compact('data'));
 	}
 
 	/**
@@ -21,7 +21,17 @@ class AbsensisController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('absensis.create');
+		$datalist = array('placeholder' => 'Masukkan Owner Perusahaan') + 
+		DB::table('users')
+		->join('users_groups', 'users.id', '=', 'users_groups.user_id')
+		->join('groups', 'users_groups.group_id', '=', 'groups.id')
+		->join('perusahaans', 'users.id', '=', 'perusahaans.users_id')
+		->lists('first_name','users_id');
+		
+		
+		return View::make('absensis.create')
+		->with('datalist',$datalist)
+		;
 	}
 
 	/**
@@ -40,7 +50,7 @@ class AbsensisController extends \BaseController {
 
 		Absensi::create($data);
 
-		return Redirect::route('absensis.index');
+		return Redirect::route('administrator.absensis.index');
 	}
 
 	/**
@@ -88,7 +98,7 @@ class AbsensisController extends \BaseController {
 
 		$absensi->update($data);
 
-		return Redirect::route('absensis.index');
+		return Redirect::route('administrator.absensis.index');
 	}
 
 	/**
@@ -101,7 +111,7 @@ class AbsensisController extends \BaseController {
 	{
 		Absensi::destroy($id);
 
-		return Redirect::route('absensis.index');
+		return Redirect::route('administrator.absensis.index');
 	}
 
 }

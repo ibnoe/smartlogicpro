@@ -1,1 +1,65 @@
-C:\xampp\htdocs\smartlogicpro\app/views/absensis/index.blade.php
+
+<?php $__env->startSection('asset'); ?>
+    <?php echo $__env->make('layouts.partials.datatable', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('breadcrumb'); ?>
+    <li><a href="/">Dashboard</a></li>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="uk-grid" data-uk-grid-margin="">
+    <div class="uk-width-medium-2-2">
+        <div class="uk-panel">
+            <h2 class="uk-panel-title">Agama</h2>
+            <a href="<?php echo route('administrator.absensis.create'); ?>" class="uk-button uk-button-small" title="Absensi">Tambah Absensi</a> 
+
+            <table class="uk-table uk-table-striped">
+            <thead>
+                <tr>
+                    <th>Nama Karyawan</th>
+                    <th>Tanggal Absen</th>
+                    <th>Cuti</th>
+                    <th>Ijin</th>
+                    <th>Sakit</th>
+                    <th>Alpha</th>
+                    <th width="10%"><center>Action</center></th>
+                </tr>
+            </thead>
+                <tbody>
+                    <?php foreach($data as $value): ?>
+                    <tr>
+                    	<td><?php echo e($value->first_name); ?> <?php echo e($value->last_name); ?></td>
+                    	<td><?php echo e($value->tanggal); ?></td>                    	
+                    	<td><?php echo e($value->cuti); ?></td>                    	
+                    	<td><?php echo e($value->ijin); ?></td>                    	
+                    	<td><?php echo e($value->sakit); ?></td>                    	
+                    	<td><?php echo e($value->alpha); ?></td>                    	
+                        <td> 
+                          <div class="uk-button-group">
+                            <button class="uk-button uk-button-primary">Action</button>
+                            <div data-uk-dropdown="{mode:'click'}" class="">
+                                <a href="#" class="uk-button uk-button-primary"><i class="uk-icon-caret-down"></i></a>
+						<div class="uk-dropdown uk-dropdown-small">
+							<ul class="uk-nav uk-nav-dropdown">
+								<li><center><a href="<?php echo route('administrator.absensis.edit', array($value->id)); ?>" title="Edit">Edit</center></a></li>
+								<li><center>
+									<?php echo Form::open(array('url' => route('administrator.absensis.destroy', ['absensis'=>$value->id]), 'method'=>'delete', 'class'=>'uk-display-inline')); ?>
+									<?php echo Form::submit('Delete', array('class' => 'uk-button-link')); ?>
+									<?php echo Form::close(); ?>
+								</center></li>
+							</ul>
+						</div>
+                            </div>
+						  </div>
+					   </td> 
+                    </tr>
+                </tbody>
+                <?php endforeach; ?>
+            </table>
+
+        </div>
+    </div>
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

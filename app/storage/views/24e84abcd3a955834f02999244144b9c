@@ -1,0 +1,41 @@
+
+
+
+<?php $__env->startSection('asset'); ?>
+    <?php echo $__env->make('layouts.partials.select2', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('breadcrumb'); ?>
+    <li><a href="/">Departement</a></li>
+    <li><a href="<?php echo route('administrator.departements.index'); ?>">Departement</a></li>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+    <?php echo Form::open(array('url' => route('administrator.departements.store'), 'method' => 'post', 'class'=>'uk-form uk-form-horizontal ')); ?>
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'Kode Departement'); ?>
+	    <?php echo Form::text('kd_dep', null, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan kode departement...',
+				'id'          => 'kd_dep',
+				'maxlength'   => '50'
+			)); ?>
+	</div>
+	<div class="uk-form-row">
+	    <?php echo Form::labelUk('title', 'Nama Departement'); ?>
+	    <?php echo Form::text('nama_dep', null, array(
+				'class'       => 'uk-form-width-large',
+				'placeholder' => 'Masukkan nama departement...',
+				'id'          => 'nama_dep',
+				'maxlength'   => '50'
+			)); ?>
+	</div>
+<?php echo HTML::divider(); ?>
+<div class="uk-form-row">
+    <?php echo Form::submitUk('Simpan'); ?>
+</div>
+
+    <?php echo Form::close(); ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
