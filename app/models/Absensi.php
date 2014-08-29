@@ -14,7 +14,7 @@ class Absensi extends \Eloquent {
 	];
 
 	// Don't forget to fill this array
-	protected $fillable = ['uid_karyawan' , 'kd_absensi' , 'tanggal' , 'cuti' , 'ijin' , 'sakit' , 'alpha' ];
+	protected $fillable = ['uid_karyawan' , 'kd_absensi' , 'tanggal' , 'cuti' , 'ijin' , 'sakit' , 'alpha' , 'tanggal'];
 	
 	public static function dataindex() {
 		return DB::table('absensis')

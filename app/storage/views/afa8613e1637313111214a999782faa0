@@ -11,45 +11,35 @@
 
 <?php $__env->startSection('content'); ?>
     <?php echo Form::open(array('url' => route('administrator.absensis.store'), 'method' => 'post', 'class'=>'uk-form uk-form-horizontal ')); ?>
-	<div class="uk-form-row <?php echo ($errors->has('kd_agama') ? 'has-error' : ''); ?>">
-	    <?php echo Form::labelUk('title', 'Kode Agama'); ?>
-	    <?php echo Form::text('kd_agama', null, array(
-				'class'       => 'uk-form-width-medium',
-				'placeholder' => 'Masukkan kode agama...',
-				'id'          => 'kd_agama',
-				'maxlength'   => '50'
-			)); ?>
-		<?php echo $errors->first('kd_agama', 'Kode Agama harus kurang dari 10 karakter'); ?>
-	</div>
-	<div class="uk-form-row <?php echo ($errors->has('nama') ? 'has-error' : ''); ?>">
-	    <?php echo Form::labelUk('title', 'Nama Agama'); ?>
-	    <?php echo Form::text('nama', null, array(
-				'class'       => 'uk-form-width-medium',
-				'placeholder' => 'Masukkan nama agama...',
-				'id'          => 'nama',
-				'maxlength'   => '50'
-			)); ?>
-		<?php echo $errors->first('nama', 'Nama Agama harus kurang dari 50 karakter'); ?>
+	<input type="hidden" name="kd_absen" value="ABS<?php echo date('y')?>-<?php echo date('d-m')?>-<?php echo date('i')?>">
+	
+	<div class="uk-form-row">
+    <?php echo Form::labelUk('title', 'Nama Karyawan'); ?>
+    <?php echo Form::select('uid_karyawan', $data , null, 
+	array(
+	'id' => 'uid_karyawan', 
+	'placeholder' => 'Masukkan url module...',
+	)); ?>
 	</div>
 	<div class="uk-form-row">
-	    <?php echo Form::labelUk('title', 'Status Module'); ?>
-	    <?php echo Form::radio('status_module', 'active', true); ?> Active
-	    <?php echo Form::radio('status_module', 'inactive', false); ?> Inactive
+	    <?php echo Form::labelUk('title', 'Cuti'); ?>
+	    <?php echo Form::radio('cuti', 'active', true); ?> Yes
+	    <?php echo Form::radio('cuti', 'inactive', false); ?> No
 	</div>
 	<div class="uk-form-row">
-	    <?php echo Form::labelUk('title', 'Status Module'); ?>
-	    <?php echo Form::radio('status_module', 'active', true); ?> Active
-	    <?php echo Form::radio('status_module', 'inactive', false); ?> Inactive
+	    <?php echo Form::labelUk('title', 'Ijin'); ?>
+	    <?php echo Form::radio('ijin', 'active', true); ?> Yes
+	    <?php echo Form::radio('ijin', 'inactive', false); ?> No
 	</div>
 	<div class="uk-form-row">
-	    <?php echo Form::labelUk('title', 'Status Module'); ?>
-	    <?php echo Form::radio('status_module', 'active', true); ?> Active
-	    <?php echo Form::radio('status_module', 'inactive', false); ?> Inactive
+	    <?php echo Form::labelUk('title', 'Sakit'); ?>
+	    <?php echo Form::radio('sakit', 'active', true); ?> Yes
+	    <?php echo Form::radio('sakit', 'inactive', false); ?> No
 	</div>
 	<div class="uk-form-row">
-	    <?php echo Form::labelUk('title', 'Status Module'); ?>
-	    <?php echo Form::radio('status_module', 'active', true); ?> Active
-	    <?php echo Form::radio('status_module', 'inactive', false); ?> Inactive
+	    <?php echo Form::labelUk('title', 'Alpha'); ?>
+	    <?php echo Form::radio('alpha', 'active', true); ?> Yes
+	    <?php echo Form::radio('alpha', 'inactive', false); ?> No
 	</div>
 <?php echo HTML::divider(); ?>
 <div class="uk-form-row">
@@ -57,5 +47,8 @@
 </div>
 
     <?php echo Form::close(); ?>
+	<script>
+$(document).ready(function() { $("#uid_karyawan").select2(); });
+</script>.
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

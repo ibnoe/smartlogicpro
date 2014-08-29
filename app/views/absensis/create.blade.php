@@ -12,47 +12,35 @@
 
 @section('content')
     {{ Form::open(array('url' => route('administrator.absensis.store'), 'method' => 'post', 'class'=>'uk-form uk-form-horizontal ')) }}
-	<div class="uk-form-row {{ ($errors->has('kd_agama') ? 'has-error' : '') }}">
-	    {{ Form::labelUk('title', 'Kode Agama') }}
-	    {{ Form::text('kd_agama', null, array(
-				'class'       => 'uk-form-width-medium',
-				'placeholder' => 'Masukkan kode agama...',
-				'id'          => 'kd_agama',
-				'maxlength'   => '50'
-			)) 
-		}}
-		{{ $errors->first('kd_agama', 'Kode Agama harus kurang dari 10 karakter') }}
-	</div>
-	<div class="uk-form-row {{ ($errors->has('nama') ? 'has-error' : '') }}">
-	    {{ Form::labelUk('title', 'Nama Agama') }}
-	    {{ Form::text('nama', null, array(
-				'class'       => 'uk-form-width-medium',
-				'placeholder' => 'Masukkan nama agama...',
-				'id'          => 'nama',
-				'maxlength'   => '50'
-			)) 
-		}}
-		{{ $errors->first('nama', 'Nama Agama harus kurang dari 50 karakter') }}
+	<input type="hidden" name="kd_absen" value="ABS<?php echo date('y')?>-<?php echo date('d-m')?>-<?php echo date('i')?>">
+	
+	<div class="uk-form-row">
+    {{ Form::labelUk('title', 'Nama Karyawan') }}
+    {{ Form::select('uid_karyawan', $data , null, 
+	array(
+	'id' => 'uid_karyawan', 
+	'placeholder' => 'Masukkan url module...',
+	))}}
 	</div>
 	<div class="uk-form-row">
-	    {{ Form::labelUk('title', 'Status Module') }}
-	    {{ Form::radio('status_module', 'active', true) }} Active
-	    {{ Form::radio('status_module', 'inactive', false) }} Inactive
+	    {{ Form::labelUk('title', 'Cuti') }}
+	    {{ Form::radio('cuti', 'active', true) }} Yes
+	    {{ Form::radio('cuti', 'inactive', false) }} No
 	</div>
 	<div class="uk-form-row">
-	    {{ Form::labelUk('title', 'Status Module') }}
-	    {{ Form::radio('status_module', 'active', true) }} Active
-	    {{ Form::radio('status_module', 'inactive', false) }} Inactive
+	    {{ Form::labelUk('title', 'Ijin') }}
+	    {{ Form::radio('ijin', 'active', true) }} Yes
+	    {{ Form::radio('ijin', 'inactive', false) }} No
 	</div>
 	<div class="uk-form-row">
-	    {{ Form::labelUk('title', 'Status Module') }}
-	    {{ Form::radio('status_module', 'active', true) }} Active
-	    {{ Form::radio('status_module', 'inactive', false) }} Inactive
+	    {{ Form::labelUk('title', 'Sakit') }}
+	    {{ Form::radio('sakit', 'active', true) }} Yes
+	    {{ Form::radio('sakit', 'inactive', false) }} No
 	</div>
 	<div class="uk-form-row">
-	    {{ Form::labelUk('title', 'Status Module') }}
-	    {{ Form::radio('status_module', 'active', true) }} Active
-	    {{ Form::radio('status_module', 'inactive', false) }} Inactive
+	    {{ Form::labelUk('title', 'Alpha') }}
+	    {{ Form::radio('alpha', 'active', true) }} Yes
+	    {{ Form::radio('alpha', 'inactive', false) }} No
 	</div>
 {{ HTML::divider() }}
 <div class="uk-form-row">
@@ -60,4 +48,7 @@
 </div>
 
     {{ Form::close() }}
+	<script>
+$(document).ready(function() { $("#uid_karyawan").select2(); });
+</script>.
 @stop

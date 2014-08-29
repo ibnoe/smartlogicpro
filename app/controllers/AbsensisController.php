@@ -28,9 +28,14 @@ class AbsensisController extends \BaseController {
 		->join('perusahaans', 'users.id', '=', 'perusahaans.users_id')
 		->lists('first_name','users_id');
 		
+		$data = User::select('uid', DB::raw('CONCAT(first_name, " ", last_name) AS full_name'))
+		->orderBy('first_name')
+		->lists('full_name', 'uid');
+		
 		
 		return View::make('absensis.create')
 		->with('datalist',$datalist)
+		->with('data',$data)
 		;
 	}
 
