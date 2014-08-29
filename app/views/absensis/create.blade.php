@@ -6,49 +6,85 @@
 
 @section('breadcrumb')
     <li><a href="/">Dashboard</a></li>
-    <li><a href="{{ route('administrator.agamas.index') }}">Agama</a></li>
+    <li><a href="{{ route('administrator.absensis.index') }}">Agama</a></li>
 
 @stop
 
 @section('content')
     {{ Form::open(array('url' => route('administrator.absensis.store'), 'method' => 'post', 'class'=>'uk-form uk-form-horizontal ')) }}
-	<input type="hidden" name="kd_absen" value="ABS<?php echo date('y')?>-<?php echo date('d-m')?>-<?php echo date('i')?>">
+	<div class="uk-form-row {{ ($errors->has('uid_karyawan') ? 'has-error' : '') }}">
+	    {{ Form::labelUk('title', 'Nama uid_karyawan') }}
+	    {{ Form::text('uid_karyawan', null, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan nama uid_karyawan...',
+				'id'          => 'uid_karyawan',
+				'maxlength'   => '50'
+			)) 
+		}}
+		{{ $errors->first('uid_karyawan', 'Nama Agama harus kurang dari 50 karakter') }}
+	</div>
+	<div class="uk-form-row {{ ($errors->has('kd_absen') ? 'has-error' : '') }}">
+	    {{ Form::labelUk('title', 'Kode kd_absensi') }}
+	    {{ Form::text('kd_absensi', null, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan kode agama...',
+				'id'          => 'kd_absensi',
+				'maxlength'   => '50'
+			)) 
+		}}
+		{{ $errors->first('kd_absensi', 'Kode kd_absensi harus kurang dari 10 karakter') }}
+	</div>
+{{ Form::hidden('tanggal', date('Y-m-d')) }}
+	<div class="uk-form-row {{ ($errors->has('cuti') ? 'has-error' : '') }}">
+	    {{ Form::labelUk('title', 'Kode cuti') }}
+	    {{ Form::text('cuti', null, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan kode agama...',
+				'id'          => 'cuti',
+				'maxlength'   => '50'
+			)) 
+		}}
+		{{ $errors->first('cuti', 'Kode kd_absensi harus kurang dari 10 karakter') }}
+	</div>
+	<div class="uk-form-row {{ ($errors->has('ijin') ? 'has-error' : '') }}">
+	    {{ Form::labelUk('title', 'Kode ijin') }}
+	    {{ Form::text('ijin', null, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan kode agama...',
+				'id'          => 'ijin',
+				'maxlength'   => '50'
+			)) 
+		}}
+		{{ $errors->first('ijin', 'Kode kd_absensi harus kurang dari 10 karakter') }}
+	</div>
+	<div class="uk-form-row {{ ($errors->has('sakit') ? 'has-error' : '') }}">
+	    {{ Form::labelUk('title', 'Kode ijin') }}
+	    {{ Form::text('sakit', null, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan kode agama...',
+				'id'          => 'sakit',
+				'maxlength'   => '50'
+			)) 
+		}}
+		{{ $errors->first('sakit', 'Kode kd_absensi harus kurang dari 10 karakter') }}
+	</div>
+	<div class="uk-form-row {{ ($errors->has('alpha') ? 'has-error' : '') }}">
+	    {{ Form::labelUk('title', 'Kode alpha') }}
+	    {{ Form::text('alpha', null, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan kode agama...',
+				'id'          => 'alpha',
+				'maxlength'   => '50'
+			)) 
+		}}
+		{{ $errors->first('alpha', 'Kode kd_absensi harus kurang dari 10 karakter') }}
+	</div>
+
 	
-	<div class="uk-form-row">
-    {{ Form::labelUk('title', 'Nama Karyawan') }}
-    {{ Form::select('uid_karyawan', $data , null, 
-	array(
-	'id' => 'uid_karyawan', 
-	'placeholder' => 'Masukkan url module...',
-	))}}
-	</div>
-	<div class="uk-form-row">
-	    {{ Form::labelUk('title', 'Cuti') }}
-	    {{ Form::radio('cuti', 'active', true) }} Yes
-	    {{ Form::radio('cuti', 'inactive', false) }} No
-	</div>
-	<div class="uk-form-row">
-	    {{ Form::labelUk('title', 'Ijin') }}
-	    {{ Form::radio('ijin', 'active', true) }} Yes
-	    {{ Form::radio('ijin', 'inactive', false) }} No
-	</div>
-	<div class="uk-form-row">
-	    {{ Form::labelUk('title', 'Sakit') }}
-	    {{ Form::radio('sakit', 'active', true) }} Yes
-	    {{ Form::radio('sakit', 'inactive', false) }} No
-	</div>
-	<div class="uk-form-row">
-	    {{ Form::labelUk('title', 'Alpha') }}
-	    {{ Form::radio('alpha', 'active', true) }} Yes
-	    {{ Form::radio('alpha', 'inactive', false) }} No
-	</div>
 {{ HTML::divider() }}
 <div class="uk-form-row">
     {{ Form::submitUk('Simpan') }}
 </div>
 
     {{ Form::close() }}
-	<script>
-$(document).ready(function() { $("#uid_karyawan").select2(); });
-</script>.
 @stop

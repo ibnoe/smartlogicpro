@@ -5,50 +5,80 @@
 
 <?php $__env->startSection('breadcrumb'); ?>
     <li><a href="/">Dashboard</a></li>
-    <li><a href="<?php echo route('administrator.agamas.index'); ?>">Agama</a></li>
+    <li><a href="<?php echo route('administrator.absensis.index'); ?>">Agama</a></li>
 
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
     <?php echo Form::open(array('url' => route('administrator.absensis.store'), 'method' => 'post', 'class'=>'uk-form uk-form-horizontal ')); ?>
-	<input type="hidden" name="kd_absen" value="ABS<?php echo date('y')?>-<?php echo date('d-m')?>-<?php echo date('i')?>">
+	<div class="uk-form-row <?php echo ($errors->has('uid_karyawan') ? 'has-error' : ''); ?>">
+	    <?php echo Form::labelUk('title', 'Nama uid_karyawan'); ?>
+	    <?php echo Form::text('uid_karyawan', null, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan nama uid_karyawan...',
+				'id'          => 'uid_karyawan',
+				'maxlength'   => '50'
+			)); ?>
+		<?php echo $errors->first('uid_karyawan', 'Nama Agama harus kurang dari 50 karakter'); ?>
+	</div>
+	<div class="uk-form-row <?php echo ($errors->has('kd_absen') ? 'has-error' : ''); ?>">
+	    <?php echo Form::labelUk('title', 'Kode kd_absensi'); ?>
+	    <?php echo Form::text('kd_absensi', null, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan kode agama...',
+				'id'          => 'kd_absensi',
+				'maxlength'   => '50'
+			)); ?>
+		<?php echo $errors->first('kd_absensi', 'Kode kd_absensi harus kurang dari 10 karakter'); ?>
+	</div>
+<?php echo Form::hidden('tanggal', date('Y-m-d')); ?>
+	<div class="uk-form-row <?php echo ($errors->has('cuti') ? 'has-error' : ''); ?>">
+	    <?php echo Form::labelUk('title', 'Kode cuti'); ?>
+	    <?php echo Form::text('cuti', null, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan kode agama...',
+				'id'          => 'cuti',
+				'maxlength'   => '50'
+			)); ?>
+		<?php echo $errors->first('cuti', 'Kode kd_absensi harus kurang dari 10 karakter'); ?>
+	</div>
+	<div class="uk-form-row <?php echo ($errors->has('ijin') ? 'has-error' : ''); ?>">
+	    <?php echo Form::labelUk('title', 'Kode ijin'); ?>
+	    <?php echo Form::text('ijin', null, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan kode agama...',
+				'id'          => 'ijin',
+				'maxlength'   => '50'
+			)); ?>
+		<?php echo $errors->first('ijin', 'Kode kd_absensi harus kurang dari 10 karakter'); ?>
+	</div>
+	<div class="uk-form-row <?php echo ($errors->has('sakit') ? 'has-error' : ''); ?>">
+	    <?php echo Form::labelUk('title', 'Kode ijin'); ?>
+	    <?php echo Form::text('sakit', null, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan kode agama...',
+				'id'          => 'sakit',
+				'maxlength'   => '50'
+			)); ?>
+		<?php echo $errors->first('sakit', 'Kode kd_absensi harus kurang dari 10 karakter'); ?>
+	</div>
+	<div class="uk-form-row <?php echo ($errors->has('alpha') ? 'has-error' : ''); ?>">
+	    <?php echo Form::labelUk('title', 'Kode alpha'); ?>
+	    <?php echo Form::text('alpha', null, array(
+				'class'       => 'uk-form-width-medium',
+				'placeholder' => 'Masukkan kode agama...',
+				'id'          => 'alpha',
+				'maxlength'   => '50'
+			)); ?>
+		<?php echo $errors->first('alpha', 'Kode kd_absensi harus kurang dari 10 karakter'); ?>
+	</div>
+
 	
-	<div class="uk-form-row">
-    <?php echo Form::labelUk('title', 'Nama Karyawan'); ?>
-    <?php echo Form::select('uid_karyawan', $data , null, 
-	array(
-	'id' => 'uid_karyawan', 
-	'placeholder' => 'Masukkan url module...',
-	)); ?>
-	</div>
-	<div class="uk-form-row">
-	    <?php echo Form::labelUk('title', 'Cuti'); ?>
-	    <?php echo Form::radio('cuti', 'active', true); ?> Yes
-	    <?php echo Form::radio('cuti', 'inactive', false); ?> No
-	</div>
-	<div class="uk-form-row">
-	    <?php echo Form::labelUk('title', 'Ijin'); ?>
-	    <?php echo Form::radio('ijin', 'active', true); ?> Yes
-	    <?php echo Form::radio('ijin', 'inactive', false); ?> No
-	</div>
-	<div class="uk-form-row">
-	    <?php echo Form::labelUk('title', 'Sakit'); ?>
-	    <?php echo Form::radio('sakit', 'active', true); ?> Yes
-	    <?php echo Form::radio('sakit', 'inactive', false); ?> No
-	</div>
-	<div class="uk-form-row">
-	    <?php echo Form::labelUk('title', 'Alpha'); ?>
-	    <?php echo Form::radio('alpha', 'active', true); ?> Yes
-	    <?php echo Form::radio('alpha', 'inactive', false); ?> No
-	</div>
 <?php echo HTML::divider(); ?>
 <div class="uk-form-row">
     <?php echo Form::submitUk('Simpan'); ?>
 </div>
 
     <?php echo Form::close(); ?>
-	<script>
-$(document).ready(function() { $("#uid_karyawan").select2(); });
-</script>.
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
